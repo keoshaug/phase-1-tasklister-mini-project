@@ -16,9 +16,17 @@ function handleFormSubmit(e) {
 
 function displayTask(task) {
   const taskUl = document.getElementById("tasks")
-
   const taskLi = document.createElement("li")
+  const deleteBtn = document.createElement("button")
 
-  taskLi.textContent = task
+  deleteBtn.textContent = "x"
+  deleteBtn.addEventListener("click", deleteTask)
+
+  taskLi.textContent = task + " "
+  taskUl.appendChild(deleteBtn)
   taskUl.appendChild(taskLi)
+}
+
+function deleteTask(e) {
+  e.target.parentNode.remove()
 }
